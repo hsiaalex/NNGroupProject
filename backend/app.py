@@ -27,7 +27,7 @@ def predict():
     # -------------------------
     # FOR NOW: Return dummy value
     # -------------------------
-    dummy_prediction = 3.21
+    dummy_prediction = 3.44
 
     return jsonify({
         "status": "success",
