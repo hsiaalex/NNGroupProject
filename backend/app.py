@@ -4,7 +4,6 @@ from flask_cors import CORS
 app = Flask(__name__)
 CORS(app)  # Allow your React app to call this API
 
-# 🚀 API Endpoint
 @app.route('/predict', methods=['POST'])
 def predict():
 
