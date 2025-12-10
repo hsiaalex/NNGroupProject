@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Container, TextField, Typography, Button, Card, Grid, Alert, Divider, RadioGroup, FormControlLabel, Radio, FormControl, FormLabel, CircularProgress } from "@mui/material";
+import { Container, TextField, Typography, Button, Card, Grid, Alert, Divider, RadioGroup, FormControlLabel, Radio, FormControl, FormLabel, CircularProgress, Box } from "@mui/material";
 
 const englishLevels = [
   { value: 1, label: "Level 130" },
@@ -205,53 +205,47 @@ export default function App() {
           <Divider sx={{ mb: 2 }} />
 
           {/* Text Fields Grid */}
-          <Grid container spacing={3} sx={{ mb: 3 }}>
-            <Grid item xs={12} sm={6}>
+          <Box sx={{ display: "flex", gap: 3, mb: 3, flexWrap: "wrap" }}>
               <TextField
                 label="High School Average (%)"
                 name="highSchool"
                 type="number"
-                fullWidth
                 value={form.highSchool}
                 onChange={handleChange}
                 slotProps={{ htmlInput: { min: 0, max: 100, step: 1 } }}
                 error={!!fieldErrors.highSchool}
                 helperText={fieldErrors.highSchool}
+                sx={{ flex: 1 }}
               />
-            </Grid>
 
-            <Grid item xs={12} sm={6}>
               <TextField
                 label="Math Score (0 - 50)"
                 name="mathScore"
                 type="number"
-                fullWidth
                 value={form.mathScore}
                 onChange={handleChange}
                 slotProps={{ htmlInput: { min: 0, max: 50, step: 1 } }}
                 error={!!fieldErrors.mathScore}
                 helperText={fieldErrors.mathScore}
+                sx={{ flex: 1 }}
               />
-            </Grid>
 
-            <Grid item xs={12} sm={6}>
               <TextField
                 label="First Term GPA (0 - 4.5)"
                 name="firstTermGpa"
                 type="number"
-                fullWidth
                 value={form.firstTermGpa}
                 onChange={handleChange}
                 slotProps={{ htmlInput: { min: 0, max: 4.5, step: 0.1 } }}
                 error={!!fieldErrors.firstTermGpa}
                 helperText={fieldErrors.firstTermGpa}
+                sx={{ flex: 1 }}
               />
-            </Grid>
-          </Grid>
+          </Box>
 
-          {/* Radio Sections Grid */}
-          <Grid container spacing={3}>
-            <Grid item xs={12} sm={8}>
+          {/* Radio Sections */}
+          <Box sx={{ display: "flex", gap: 3, mb: 3, flexWrap: "wrap" }}>
+            <Box sx={{ flex: "2 1 300px" }}>
               <FormControl fullWidth error={!!fieldErrors.englishGrade} size="small">
                 <FormLabel sx={{ mb: 1, fontWeight: "500" }}>English Grade Level</FormLabel>
                 <RadioGroup name="englishGrade" value={form.englishGrade} onChange={handleChange} sx={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 0 }}>
@@ -265,9 +259,9 @@ export default function App() {
                   </Typography>
                 )}
               </FormControl>
-            </Grid>
+            </Box>
 
-            <Grid item xs={12} sm={4}>
+            <Box sx={{ flex: "1 1 200px" }}>
               <FormControl fullWidth error={!!fieldErrors.prevEducation}>
                 <FormLabel sx={{ mb: 1, fontWeight: "500" }}>Previous Education</FormLabel>
                 <RadioGroup name="prevEducation" value={form.prevEducation} onChange={handleChange}>
@@ -280,8 +274,8 @@ export default function App() {
                   </Typography>
                 )}
               </FormControl>
-            </Grid>
-          </Grid>
+            </Box>
+          </Box>
 
           {/* Personal Information */}
           <Typography variant="h6" sx={{ mt: 4, mb: 2 }}>
@@ -289,8 +283,8 @@ export default function App() {
           </Typography>
           <Divider sx={{ mb: 2 }} />
 
-          <Grid container spacing={3}>
-            <Grid item xs={12} sm={3}>
+          <Box sx={{ display: "flex", gap: 3, mb: 3, flexWrap: "wrap" }}>
+            <Box sx={{ flex: 2 }}>
               <FormControl fullWidth error={!!fieldErrors.ageGroup} size="small">
                 <FormLabel sx={{ mb: 1, fontWeight: "500" }}>Age Group</FormLabel>
                 <RadioGroup name="ageGroup" value={form.ageGroup} onChange={handleChange} sx={{ display: "grid", gridTemplateColumns: "repeat(2, 1fr)", gap: 0 }}>
@@ -304,9 +298,9 @@ export default function App() {
                   </Typography>
                 )}
               </FormControl>
-            </Grid>
+            </Box>
 
-            <Grid item xs={12} sm={3}>
+            <Box sx={{ flex: 1 }}>
               <FormControl fullWidth error={!!fieldErrors.gender}>
                 <FormLabel sx={{ mb: 1, fontWeight: "500" }}>Gender</FormLabel>
                 <RadioGroup name="gender" value={form.gender} onChange={handleChange}>
@@ -320,9 +314,9 @@ export default function App() {
                   </Typography>
                 )}
               </FormControl>
-            </Grid>
+            </Box>
 
-            <Grid item xs={12} sm={3}>
+            <Box sx={{ flex: 1 }}>
               <FormControl fullWidth error={!!fieldErrors.residency}>
                 <FormLabel sx={{ mb: 1, fontWeight: "500" }}>Residency</FormLabel>
                 <RadioGroup name="residency" value={form.residency} onChange={handleChange}>
@@ -335,9 +329,9 @@ export default function App() {
                   </Typography>
                 )}
               </FormControl>
-            </Grid>
+            </Box>
 
-            <Grid item xs={12} sm={3}>
+            <Box sx={{ flex: 1 }}>
               <FormControl fullWidth error={!!fieldErrors.firstLanguage}>
                 <FormLabel sx={{ mb: 1, fontWeight: "500" }}>First Language</FormLabel>
                 <RadioGroup name="firstLanguage" value={form.firstLanguage} onChange={handleChange}>
@@ -351,8 +345,8 @@ export default function App() {
                   </Typography>
                 )}
               </FormControl>
-            </Grid>
-          </Grid>
+            </Box>
+          </Box>
 
           {/* Program Information */}
           <Typography variant="h6" sx={{ mt: 4, mb: 2 }}>
@@ -360,8 +354,8 @@ export default function App() {
           </Typography>
           <Divider sx={{ mb: 2 }} />
 
-          <Grid container spacing={3}>
-            <Grid item xs={12} sm={3}>
+          <Box sx={{ display: "flex", gap: 3, mb: 3, flexWrap: "wrap" }}>
+            <Box sx={{ flex: 0.5 }}>
               <FormControl fullWidth error={!!fieldErrors.fastTrack}>
                 <FormLabel sx={{ mb: 1, fontWeight: "500" }}>Fast Track?</FormLabel>
                 <RadioGroup name="fastTrack" value={form.fastTrack} onChange={handleChange}>
@@ -374,9 +368,9 @@ export default function App() {
                   </Typography>
                 )}
               </FormControl>
-            </Grid>
+            </Box>
 
-            <Grid item xs={12} sm={3}>
+            <Box sx={{ flex: 0.5 }}>
               <FormControl fullWidth error={!!fieldErrors.coop}>
                 <FormLabel sx={{ mb: 1, fontWeight: "500" }}>Co-op Program?</FormLabel>
                 <RadioGroup name="coop" value={form.coop} onChange={handleChange}>
@@ -389,9 +383,9 @@ export default function App() {
                   </Typography>
                 )}
               </FormControl>
-            </Grid>
+            </Box>
 
-            <Grid item xs={12} sm={3}>
+            <Box sx={{ flex: 1 }}>
               <FormControl fullWidth error={!!fieldErrors.school} size="small">
                 <FormLabel sx={{ mb: 1, fontWeight: "500" }}>School / Faculty</FormLabel>
                 <RadioGroup name="school" value={form.school} onChange={handleChange} sx={{ display: "grid", gridTemplateColumns: "repeat(2, 1fr)", gap: 0 }}>
@@ -405,9 +399,9 @@ export default function App() {
                   </Typography>
                 )}
               </FormControl>
-            </Grid>
+            </Box>
 
-            <Grid item xs={12} sm={3}>
+            <Box sx={{ flex: 2 }}>
               <FormControl fullWidth error={!!fieldErrors.funding} size="small">
                 <FormLabel sx={{ mb: 1, fontWeight: "500" }}>Funding Type</FormLabel>
                 <RadioGroup name="funding" value={form.funding} onChange={handleChange} sx={{ display: "grid", gridTemplateColumns: "repeat(2, 1fr)", gap: 0 }}>
@@ -421,8 +415,8 @@ export default function App() {
                   </Typography>
                 )}
               </FormControl>
-            </Grid>
-          </Grid>
+            </Box>
+          </Box>
 
           {/* Submit Button */}
           <Button variant="contained" size="large" fullWidth sx={{ mt: 4, py: 1.5, fontSize: "1.1rem", fontWeight: "bold" }} onClick={handleSubmit} disabled={loading}>
