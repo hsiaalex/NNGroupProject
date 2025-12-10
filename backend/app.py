@@ -293,8 +293,10 @@ def validate_entry():
 if __name__ == '__main__':
     # Load models on startup
     if load_models():
-        print("Starting Flask app on port 5000...")
-        app.run(port=5000, debug=False)
+        # Use PORT environment variable for Render, default to 5000 for local
+        port = int(os.environ.get('PORT', 5000))
+        print(f"Starting Flask app on port {port}...")
+        app.run(host='0.0.0.0', port=port, debug=False)
     else:
         print("Failed to load models. Exiting.")
         exit(1)

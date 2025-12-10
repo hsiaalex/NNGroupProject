@@ -1,6 +1,7 @@
 Flask
 Flask-CORS
 numpy
-tensorflow
-gunicorn
 pandas
+tensorflow
+joblib
+gunicorn
